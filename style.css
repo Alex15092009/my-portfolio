@@ -1,0 +1,512 @@
+/* Базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0b021a; /* Глубокий темный фон */
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+/* Главный блок */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    /* ФОН: Аналитика, графики и digital-маркетинг */
+    background: url('data:image/jpeg;base64,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');
+    background-size: cover;
+    background-position: center right;
+    background-attachment: fixed; /* Эффект параллакса при скролле */
+}
+
+/* Затемнение: слева темнее (для текста), справа прозрачнее (для фона) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(11, 2, 26, 1) 25%, 
+        rgba(11, 2, 26, 0.7) 60%, 
+        rgba(11, 2, 26, 0.3) 100%);
+    z-index: 1;
+}
+
+.hero-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* Заголовок: уменьшенный и читабельный */
+.main-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+/* Описание */
+.hero-description {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 45px;
+    border-left: 3px solid #7d5fff;
+    padding-left: 24px;
+    max-width: 650px;
+}
+
+/* Кнопки */
+.hero-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 16px 34px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-primary {
+    background: #7d5fff;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(125, 95, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background: #6c47ff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(125, 95, 255, 0.5);
+}
+
+.btn-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+}
+
+.btn-secondary:hover {
+    background: #ffffff;
+    color: #0b021a;
+    transform: translateY(-3px);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .container { padding: 0 25px; }
+    .hero { text-align: center; }
+    .hero-description { 
+        border-left: none; 
+        padding-left: 0; 
+        margin: 0 auto 35px; 
+    }
+    .hero-actions { justify-content: center; }
+    .overlay { 
+        background: rgba(11, 2, 26, 0.85); /* Сильнее затемняем на мобилках */
+    }
+}
+/* СТИЛИ ДЛЯ ВТОРОГО БЛОКА */
+.advantages {
+    padding: 100px 0;
+    background-color: #0d0221; /* Тот же темный фон для единства стиля */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #9b51e0; /* Фиолетовый акцент */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Сетка преимуществ */
+.advantages-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* По 2 в ряд */
+    gap: 30px;
+}
+
+/* Карточка преимущества */
+.adv-card {
+    background: rgba(255, 255, 255, 0.03); /* Почти прозрачный белый */
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(155, 81, 224, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Текст слева */
+}
+
+.adv-card:hover {
+    background: rgba(155, 81, 224, 0.08);
+    transform: translateY(-5px);
+    border-color: #9b51e0;
+}
+
+.adv-card i {
+    font-size: 2.5rem;
+    color: #9b51e0;
+    margin-bottom: 20px;
+}
+
+.adv-card h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    min-height: 50px; /* Чтобы заголовки были одной высоты */
+}
+
+/* Та самая черточка посередине */
+.line {
+    width: 60px;
+    height: 3px;
+    background: #9b51e0;
+    margin: 15px 0;
+    border-radius: 2px;
+}
+
+.adv-card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* Кнопка внизу блока */
+.advantages-footer {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Адаптация для мобильных (в 1 колонку) */
+@media (max-width: 992px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+/* =========================================
+   СТИЛИ ДЛЯ ТРЕТЬЕГО БЛОКА (CTA)
+   ========================================= */
+.cta-section {
+    position: relative;
+    padding: 120px 0; /* Делаем блок высоким, чтобы насладиться фоном */
+    text-align: center;
+    
+    /* Тот самый фон из первого блока */
+    background: url('https://st2.depositphotos.com/3837271/8401/i/450/depositphotos_84019604-stock-photo-hand-with-marker-writing-the.jpg');
+    background-size: cover;
+    background-position: center right;
+    
+    /* ИМЕННО ЭТА СТРОЧКА ДЕЛАЕТ ЭФФЕКТ "ЗА КУЛИСАМИ" */
+    background-attachment: fixed; 
+}
+
+/* Обновленное затемнение для третьего блока (в точности как в первом) */
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Тот самый градиент: слева темнее, справа прозрачнее */
+    background: linear-gradient(90deg, 
+        rgba(11, 2, 26, 1) 25%, 
+        rgba(11, 2, 26, 0.7) 60%, 
+        rgba(11, 2, 26, 0.3) 100%);
+    z-index: 1;
+}
+
+.cta-container {
+    position: relative;
+    z-index: 2; /* Поднимаем текст над темной пленкой */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 40px;
+    max-width: 800px; /* Чтобы текст не растягивался на всю ширину экрана */
+    line-height: 1.4;
+}
+
+/* Специальная кнопка WhatsApp для этого блока */
+.btn-whatsapp-cta {
+    background: #25D366; /* Фирменный зеленый цвет WhatsApp (вызывает больше доверия) */
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 18px 45px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.btn-whatsapp-cta:hover {
+    background: #1ebd5c; /* Чуть темнее при наведении */
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+}
+
+/* Адаптация под телефоны */
+@media (max-width: 768px) {
+    .cta-section { padding: 80px 0; }
+    .cta-title { margin-bottom: 30px; }
+}
+/* СТИЛИ ДЛЯ БЛОКА КЕЙСОВ */
+.cases-section {
+    padding: 100px 0;
+    background-color: #0b021a;
+}
+
+.cases-main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.cases-slider {
+    padding: 20px 0 60px 0 !important;
+}
+
+/* Сама карточка */
+.case-card {
+    background: #150a2e;
+    border-radius: 20px;
+    overflow: hidden; /* Чтобы картинка не вылазила за скругления */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(125, 95, 255, 0.2);
+    transition: 0.3s ease;
+}
+
+.case-card:hover {
+    transform: translateY(-10px);
+    border-color: #7d5fff;
+}
+
+.case-image {
+    height: 200px;
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.case-info {
+    padding: 30px;
+}
+
+.case-number {
+    color: #7d5fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.case-info h3 {
+    margin: 10px 0 20px 0;
+    font-size: 1.5rem;
+}
+
+.case-stats {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.case-stats p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: space-between;
+}
+
+.case-stats p.highlight {
+    color: #7d5fff;
+    font-weight: 700;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+/* Кнопки в кейсе */
+.case-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.btn-stat {
+    background: transparent;
+    border: 1px solid #7d5fff;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 12px 5px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-wa-small {
+    background: #25D366;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 12px 5px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Стили стрелочек Swiper под наш дизайн */
+.swiper-button-next, .swiper-button-prev {
+    color: #7d5fff !important;
+}
+
+.swiper-pagination-bullet {
+    background: #7d5fff !important;
+}
+/* =========================================
+   СТИЛИ ДЛЯ ПЯТОГО БЛОКА (КОНТАКТЫ)
+   ========================================= */
+.contacts-section {
+    position: relative;
+    padding: 100px 0;
+    text-align: center;
+    background: url('https://st2.depositphotos.com/3837271/8401/i/450/depositphotos_84019604-stock-photo-hand-with-marker-writing-the.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Параллакс как в 1 и 3 блоке */
+}
+
+.contact-container {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-main-title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.team-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); /* Эффект размытия стекла */
+    padding: 40px 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    background: rgba(125, 95, 255, 0.1);
+    border-color: #7d5fff;
+}
+
+/* Фото в кружочке */
+.member-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #7d5fff;
+    box-shadow: 0 0 20px rgba(125, 95, 255, 0.3);
+}
+
+.member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.phone, .email {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+}
+
+/* Иконки соцсетей */
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #7d5fff;
+    transform: scale(1.2);
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* На мобилках по одному в ряд */
+        gap: 20px;
+    }
+}
